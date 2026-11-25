@@ -1,0 +1,212 @@
+```html
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#172d29">
+<title>PUSULA — Fiyat ve Risk Seviyeleri</title>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@500;600;700;800&family=DM+Sans:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#f4f5ee;--ink:#172d29;--muted:#66766d;--line:#d6ddd1;--green:#146b48;--red:#b73e3e;--lime:#d3ec94}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font-family:"DM Sans",sans-serif}button,input,select{font:inherit}button{cursor:pointer}button:disabled{opacity:.5;cursor:wait}button:focus-visible,input:focus-visible,select:focus-visible,summary:focus-visible{outline:3px solid #749244;outline-offset:3px}.shell{max-width:1560px;margin:auto;padding:0 28px}header{border-bottom:1px solid var(--line)}.header{display:flex;justify-content:space-between;align-items:center;gap:15px;padding:25px 0}.brand{font:800 24px Manrope,sans-serif;letter-spacing:-1px;display:flex;align-items:center;gap:10px}.brand svg{width:32px}.tag{font:10px "Space Mono",monospace;color:var(--muted);letter-spacing:1px}.status{font-size:12px;color:var(--muted)}.hero{padding:38px 0 26px;display:grid;grid-template-columns:1.3fr 1fr;gap:40px;align-items:end}h1,h2,h3{font-family:Manrope,sans-serif}h1{font-size:clamp(34px,4vw,54px);line-height:1.1;letter-spacing:-2px;margin:12px 0 14px}h1 span{color:var(--green)}p{line-height:1.7}.intro{font-size:13px;color:var(--muted);max-width:650px}.note{border-left:2px solid var(--line);padding-left:20px;font-size:12px;color:var(--muted)}.note strong{color:var(--ink)}.controls{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;border-top:1px solid var(--line);padding:18px 0}.group{display:flex;gap:14px;align-items:center;flex-wrap:wrap}.btn{background:var(--ink);color:var(--lime);border:1px solid var(--ink);border-radius:4px;padding:12px 16px;font-size:12px;font-weight:700;transition:.2s}.btn:hover:not(:disabled){background:var(--lime);color:var(--ink);transform:translateY(-2px)}.btn:active:not(:disabled){transform:scale(.97)}.btn.secondary{background:transparent;color:var(--ink)}label{font-size:12px;display:flex;align-items:center;gap:7px}input[type=checkbox]{accent-color:var(--green);width:17px;height:17px}select{padding:8px;background:transparent;border:1px solid var(--line);border-radius:3px;color:var(--ink)}.risk{display:flex;gap:20px;flex-wrap:wrap;padding:14px 0 20px;font-size:12px;color:var(--muted)}.risk label{flex-wrap:wrap}.risk input{width:64px;padding:7px;border:1px solid var(--line);background:#fff;color:var(--ink);border-radius:3px}.overview{display:grid;grid-template-columns:1.4fr repeat(3,1fr);gap:20px;background:var(--ink);color:var(--bg);padding:24px;border-radius:4px;margin-bottom:28px}.overview>div+div{border-left:1px solid #ffffff25;padding-left:24px}.overview .tag{color:#b9c9ba;font-size:9px}.number{font:28px "Space Mono",monospace;margin-top:8px}.green{color:var(--lime)}.red{color:#ffaaaa}.small{font-size:11px;color:var(--muted)}.section-head{display:flex;justify-content:space-between;gap:15px;align-items:center;margin-bottom:15px}h2{font-size:19px;letter-spacing:-.5px;margin:0}.table-wrap{overflow:auto;-webkit-overflow-scrolling:touch;border-top:1px solid var(--ink)}table{border-collapse:collapse;width:100%;white-space:nowrap;text-align:left}th{font-size:9px;color:var(--muted);font-weight:500;padding:16px 11px;border-bottom:1px solid var(--line)}td{padding:16px 11px;border-bottom:1px solid var(--line);font-size:11px}th:first-child,td:first-child{padding-left:0}td.numeric{font-family:"Space Mono",monospace;font-size:10px}tbody tr:hover,tbody tr.selected{background:#e7eddf}.pair{border:0;background:transparent;color:var(--ink);padding:0;font-size:13px;font-weight:700}.rank{color:var(--muted);font:10px "Space Mono",monospace;margin-right:8px}.badge{font:10px "Space Mono",monospace;padding:6px 8px;border-radius:3px;background:#e3e6db;color:#63715e;display:inline-block}.badge.buy{background:#dcebdc;color:var(--green)}.badge.sell{background:#f3dfdb;color:var(--red)}.up{color:var(--green)}.down{color:var(--red)}.empty{padding:36px 0;white-space:normal;color:var(--muted);line-height:1.8}.notice{padding:14px 18px;border-left:3px solid #957524;background:#eee9d8;font-size:12px;line-height:1.7;margin-bottom:18px}.notice[hidden]{display:none}.detail{display:grid;grid-template-columns:1fr 1fr;gap:32px;margin-top:35px;border-top:1px solid var(--ink);padding-top:24px}.detail-title{display:flex;justify-content:space-between;align-items:center;gap:15px}h3{font-size:23px;margin:0;letter-spacing:-.7px}.price{font:28px "Space Mono",monospace;margin:15px 0 4px}.levels{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:22px 0;margin-top:22px}.level-value{font:clamp(14px,1.7vw,23px) "Space Mono",monospace;margin-top:10px;overflow-wrap:anywhere}.description{font-size:12px;color:var(--muted);line-height:1.8}.indicator{display:grid;grid-template-columns:1fr auto auto;gap:16px;align-items:center;border-bottom:1px solid var(--line);padding:13px 0;font-size:12px}.indicator small{display:block;color:var(--muted);font-size:10px;margin-top:4px}.mono{font-family:"Space Mono",monospace;font-size:10px}.indicator .badge{font-size:9px}.time{font-size:10px;color:var(--muted);line-height:1.8}.chart{display:block;width:100%;height:160px;margin-top:16px;background:linear-gradient(#e8eddf,transparent)}details{border-top:1px solid var(--line);padding:24px 0;margin-top:30px;font-size:12px;color:var(--muted);line-height:1.85}summary{font-weight:600;color:var(--ink);cursor:pointer}.explain{display:grid;grid-template-columns:1fr 1fr;gap:30px}.explain h3{font-size:15px;margin-top:22px}footer{border-top:1px solid var(--line);padding:22px 0 30px;font-size:11px;color:var(--muted);line-height:1.8}.reveal{animation:rise .6s both}.delay{animation-delay:.15s}@keyframes rise{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}@media(max-width:800px){.hero,.detail,.explain{grid-template-columns:1fr;gap:20px}.shell{padding:0 18px}.overview{grid-template-columns:1fr 1fr}.overview>div+div{border:0;padding-left:0}.header .tag{display:none}.section-head{align-items:start;flex-direction:column}.levels{gap:12px}.level-value{font-size:17px}.controls{gap:15px}h1{letter-spacing:-1.5px}}@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+<header><div class="shell header">
+<div class="brand"><svg viewBox="0 0 40 40" fill="none" aria-hidden="true"><circle cx="20" cy="20" r="17" stroke="currentColor" stroke-width="1.5"/><path d="M26 10L22 23L10 29L17 17Z" fill="#146b48"/><path d="M26 10L22 23L17 17Z" fill="#d3ec94"/></svg>PUSULA <span class="tag">FUTURES / RİSK TERMİNALİ</span></div>
+<div class="status" id="status" role="status">Veri bekleniyor</div>
+</div></header>
+<main class="shell">
+<section class="hero reveal">
+<div><div class="tag">USDT PERPETUAL · HACİM LİDERİ 15 ÇİFT</div><h1>Sinyali gör.<br><span>Riskini ölç.</span></h1><p class="intro">Anlık son işlem fiyatı, AL / SAT referans giriş seviyesi, Take Profit ve Stop Loss artık aynı listede. Yön analizi yalnızca kapanmış 15dk ve 4s mumlardan hesaplanır.</p></div>
+<div class="note"><strong>Mevcut sürümün yerine kullanın.</strong><p>Bu kodun tamamını GitHub’daki <strong>index.html</strong> dosyanızın yerine kaydedin. Yayın tamamlanınca iPad’de sayfayı yenileyin.</p><p>Giriş, TP ve SL teorik plan seviyeleridir; emir gönderilmez. BEKLE sonucunda işlem planı oluşturulmaz.</p></div>
+</section>
+<section class="controls reveal delay">
+<div class="group"><button class="btn" id="scan">↻ Taramayı başlat</button><label><input id="auto" type="checkbox" checked>Tarama · 60 sn</label><label><input id="live" type="checkbox" checked>Fiyat · 10 sn</label></div>
+<div class="group"><span class="small" id="updated">Henüz taranmadı</span><button class="btn secondary" id="csv" disabled>CSV indir ↗</button></div>
+</section>
+<section class="risk" aria-label="İşlem planı ayarları">
+<label>ATR zaman dilimi <select id="riskTf"><option value="15m">15dk · kısa vade</option><option value="4h">4s · geniş aralık</option></select></label>
+<label>SL · ATR çarpanı <input id="mult" type="number" min="0.5" max="10" step="0.1" value="1.5"></label>
+<label>TP · risk / getiri <input id="rr" type="number" min="0.5" max="10" step="0.1" value="2"></label>
+<span>ATR 14 (Wilder) · Varsayılan hedef: 1 risk / 2 getiri</span>
+</section>
+<div id="notice" class="notice" role="status" hidden></div>
+<section class="overview reveal delay">
+<div><div class="tag">ANALİZ EDİLEN / 15</div><div class="number" id="total">—</div></div>
+<div><div class="tag">AL / LONG</div><div class="number green" id="buys">—</div></div>
+<div><div class="tag">SAT / SHORT</div><div class="number red" id="sells">—</div></div>
+<div><div class="tag">BEKLE / VERİ YOK</div><div class="number" id="waits">—</div></div>
+</section>
+<section>
+<div class="section-head"><h2>Fiyat ve işlem planı</h2><span class="small" id="priceTime">Fiyatlar 10 saniyede bir alınır; gerçek zamanlı tick akışı değildir.</span></div>
+<div class="table-wrap"><table aria-label="Fiyat, sinyal, giriş, hedef ve zarar durdurma seviyeleri">
+<thead><tr><th>ÇİFT</th><th>24S HACİM / USDT</th><th>SON FİYAT</th><th>15DK</th><th>4S</th><th>SONUÇ</th><th>GİRİŞ REFERANSI</th><th>TAKE PROFIT</th><th>STOP LOSS</th><th>PLAN DURUMU</th></tr></thead>
+<tbody id="rows"><tr><td colspan="10" class="empty">Taramayı başlatın. Doğrudan Binance Futures verileri kullanılır.<br>Giriş referansı tarama sırasında alınan son işlem fiyatıdır; fiyat yenilemeleri giriş, TP ve SL seviyelerini değiştirmez.</td></tr></tbody>
+</table></div>
+<p class="small">iPad’de tüm sütunları görmek için tabloyu yatay kaydırın. Seçili çifti incelemek için adına dokunun.</p>
+</section>
+<section class="detail" aria-label="Seçili çift">
+<div>
+<div class="detail-title"><h3 id="symbol">Çift seçin</h3><span class="badge" id="result">BEKLE</span></div>
+<div class="price" id="detailPrice">—</div><span class="small">Son işlem fiyatı · USDT</span>
+<svg id="chart" class="chart" viewBox="0 0 500 160" role="img" aria-label="Son 60 kapanmış mumun kapanış fiyatı"></svg>
+<div class="levels">
+<div><div class="tag">GİRİŞ REFERANSI</div><div class="level-value" id="entry">—</div></div>
+<div><div class="tag">TAKE PROFIT</div><div class="level-value up" id="tp">—</div></div>
+<div><div class="tag">STOP LOSS</div><div class="level-value down" id="sl">—</div></div>
+</div>
+<p class="description" id="planInfo">AL veya SAT teyidi oluştuğunda teorik seviyeler görünür.</p>
+<p class="time" id="planTime">Plan zamanı: —</p>
+</div>
+<div>
+<div class="detail-title"><h2>Gösterge dökümü</h2><select id="detailTf" aria-label="Gösterge zaman dilimi"><option value="15m">15dk</option><option value="4h">4s</option></select></div>
+<div id="indicators"></div><p class="time" id="candleTime">Açık mumlar hesaplamaya katılmaz.</p>
+</div>
+</section>
+<details>
+<summary>Sinyaller ve fiyat seviyeleri nasıl hesaplanıyor?</summary>
+<div class="explain">
+<div><h3>Sinyal mantığı</h3><p>Hacmi en yüksek 15 aktif USDT perpetual kontratı seçilir. Her zaman diliminde 300 mum alınır; Binance sunucu saatine göre kapanmamış mumlar elenir. En az 220 kapanmış mum gerekir.</p><ul><li>SMA 20 / 50 ve EMA 20 / 50: hızlı ortalama üstteyse +1; alttaysa −1.</li><li>RSI 14: 55–70 arası +1; 30–45 arası −1; diğer değerler nötr.</li><li>Bollinger 20, 2σ: orta / üst bant arası +1; alt / orta bant arası −1; bant dışı nötr.</li><li>Supertrend ATR 10, çarpan 3: yükseliş +1; düşüş −1.</li></ul><p>Puan ≥ +3 ve Supertrend yükselişteyse AL; ≤ −3 ve düşüşteyse SAT. Diğer durumlarda BEKLE. Ortak AL/SAT sonucu için iki zaman dilimi aynı yönde olmalıdır. Strateji geriye dönük test edilmiş değildir.</p></div>
+<div><h3>Giriş, TP ve SL</h3><p><strong>Giriş:</strong> taramanın sonunda alınan son işlem fiyatı. Gerçekleşmiş işlem veya garanti edilmiş alış/satış fiyatı değildir.</p><p><strong>Risk mesafesi = ATR 14 × SL çarpanı.</strong><br>AL: SL = giriş − risk; TP = giriş + risk × risk/getiri.<br>SAT: SL = giriş + risk; TP = giriş − risk × risk/getiri.</p><p>Seviyeler kontratın tick size değerine yuvarlanır; gerçek risk/getiri oranı bu nedenle küçük farklılık gösterebilir. Pozitif ve doğru sıralanmış seviyeler üretilemezse plan gösterilmez. Her yeni tarama ve risk ayarı değişikliği yeni bir plan oluşturur. Fiyat yenilemesi tek başına planı değiştirmez.</p><p>“TP/SL bölgesi” yalnızca son alınan fiyatın seviyeyi aştığını belirtir; gerçek emir gerçekleşmesi veya aradaki tüm fiyat hareketleri izlenmez. Son işlem fiyatı mark price değildir. Komisyon, fonlama, spread, kayma ve likidasyon hesaba katılmaz.</p></div>
+</div>
+</details>
+<footer>Yatırım tavsiyesi değildir. Bu sayfa emir göndermez veya pozisyon izlemez. Stop loss gerçekleşmesi garanti değildir.<br>iPad ekranı kilitlendiğinde ya da sekme arka planda kaldığında yenileme durabilir. Binance API erişimi bölgesel kısıtlamalara ve hız sınırlarına tabidir. API anahtarı gerekmez.</footer>
+</main>
+<script>
+"use strict";
+const $=id=>document.getElementById(id),API="https://fapi.binance.com";
+let records=[],selected="",busy=false,priceBusy=false,lastScan=0,lastPrices=0,infoCache=null,infoTime=0;
+const nf=new Intl.NumberFormat("tr-TR",{maximumFractionDigits:2});
+function volume(v){return v>=1e9?nf.format(v/1e9)+" Mr":v>=1e6?nf.format(v/1e6)+" Mn":nf.format(v)}
+function decimals(tick){const s=String(tick);return s.includes("e-")?Number(s.split("e-")[1]):(s.split(".")[1]||"").replace(/0+$/,"").length}
+function price(v,r){return Number.isFinite(v)?new Intl.NumberFormat("tr-TR",{minimumFractionDigits:r?.digits||0,maximumFractionDigits:r?.digits??6}).format(v):"—"}
+function badge(s){return '<span class="badge '+(s==="AL"?"buy":s==="SAT"?"sell":"")+'">'+s+'</span>'}
+function message(t){$("notice").textContent=t;$("notice").hidden=!t}
+async function get(path){
+ const ctrl=new AbortController(),timer=setTimeout(()=>ctrl.abort(),18000);
+ try{const res=await fetch(API+path,{signal:ctrl.signal,cache:"no-store",credentials:"omit"});
+ if(!res.ok)throw Error(res.status===429||res.status===418?"API hız sınırı ("+res.status+").":res.status===451?"Bölgesel API erişim kısıtlaması (451).":"API hatası: "+res.status);
+ return await res.json();
+ }catch(e){if(e.name==="AbortError")throw Error("Bağlantı zaman aşımı.");if(e instanceof TypeError)throw Error("API’ye ulaşılamıyor. Ağ, CORS veya bölgesel erişim engeli olabilir.");throw e}
+ finally{clearTimeout(timer)}
+}
+function ma(a,n){let sum=0;return a.map((v,i)=>{sum+=v;if(i>=n)sum-=a[i-n];return i>=n-1?sum/n:null})}
+function ema(a,n){const o=Array(a.length).fill(null);let v=a.slice(0,n).reduce((s,x)=>s+x,0)/n;o[n-1]=v;for(let i=n;i<a.length;i++)o[i]=v+=(a[i]-v)*2/(n+1);return o}
+function rsi(a,n=14){let g=0,l=0;for(let i=1;i<=n;i++){const d=a[i]-a[i-1];g+=Math.max(d,0);l+=Math.max(-d,0)}g/=n;l/=n;for(let i=n+1;i<a.length;i++){const d=a[i]-a[i-1];g=(g*(n-1)+Math.max(d,0))/n;l=(l*(n-1)+Math.max(-d,0))/n}return l===0?(g===0?50:100):100-100/(1+g/l)}
+function trueRanges(c){return c.map((x,i)=>i?Math.max(x.h-x.l,Math.abs(x.h-c[i-1].c),Math.abs(x.l-c[i-1].c)):x.h-x.l)}
+function atr(c,n){const tr=trueRanges(c);let a=tr.slice(0,n).reduce((s,v)=>s+v,0)/n;for(let i=n;i<tr.length;i++)a=(a*(n-1)+tr[i])/n;return a}
+function st(c,n=10,m=3){
+ const tr=trueRanges(c);let a=tr.slice(0,n).reduce((s,v)=>s+v,0)/n,u=0,l=0,d=1;
+ for(let i=n-1;i<c.length;i++){
+ if(i>=n)a=(a*(n-1)+tr[i])/n;
+ const mid=(c[i].h+c[i].l)/2,bu=mid+m*a,bl=mid-m*a;
+ if(i===n-1){u=bu;l=bl;d=c[i].c>=mid?1:-1}
+ else{const pu=u,pl=l,pd=d;u=bu<pu||c[i-1].c>pu?bu:pu;l=bl>pl||c[i-1].c<pl?bl:pl;d=pd===-1?(c[i].c>u?1:-1):(c[i].c<l?-1:1)}
+ }return {dir:d,line:d===1?l:u}
+}
+function analyze(raw,time){
+ if(!Array.isArray(raw))throw Error("Geçersiz mum yanıtı.");
+ const c=raw.filter(x=>+x[6]<time).map(x=>({h:+x[2],l:+x[3],c:+x[4],t:+x[6]}));
+ if(c.length<220||c.some(x=>![x.h,x.l,x.c,x.t].every(Number.isFinite)))throw Error("Yeterli geçerli kapanmış mum yok.");
+ const p=c.map(x=>x.c),i=p.length-1,m20=ma(p,20)[i],m50=ma(p,50)[i],e20=ema(p,20)[i],e50=ema(p,50)[i],R=rsi(p),S=st(c);
+ const sd=Math.sqrt(p.slice(-20).reduce((s,v)=>s+(v-m20)**2,0)/20),upper=m20+2*sd,lower=m20-2*sd,close=p[i];
+ const votes=[Math.sign(m20-m50),Math.sign(e20-e50),R>=55&&R<=70?1:R>=30&&R<=45?-1:0,close>m20&&close<=upper?1:close<m20&&close>=lower?-1:0,S.dir];
+ const score=votes.reduce((s,v)=>s+v,0),signal=score>=3&&S.dir===1?"AL":score<=-3&&S.dir===-1?"SAT":"BEKLE";
+ return {c,m20,m50,e20,e50,R,S,upper,lower,votes,score,signal,atr:atr(c,14)};
+}
+function settings(){const m=Number($("mult").value),rr=Number($("rr").value);return m>=.5&&m<=10&&rr>=.5&&rr<=10?{m,rr,tf:$("riskTf").value}:null}
+function makePlan(r,now){
+ r.plan=null;r.planError="";
+ if(r.result==="BEKLE"||r.error)return;
+ const s=settings();if(!s){r.planError="Risk ayarı geçersiz";return}
+ const a=r.data[s.tf],entry=r.price,dist=a?.atr*s.m;
+ if(!a||!Number.isFinite(entry)||entry<=0||!Number.isFinite(dist)||dist<=0||!r.tick){r.planError="Plan verisi eksik";return}
+ const dir=r.result==="AL"?1:-1,round=v=>Number((Math.round(v/r.tick)*r.tick).toFixed(r.digits));
+ const e=round(entry),sl=round(entry-dir*dist),tp=round(entry+dir*dist*s.rr);
+ if(![e,sl,tp].every(v=>Number.isFinite(v)&&v>0)||(dir===1?!(sl<e&&tp>e):!(sl>e&&tp<e))){r.planError="Geçerli seviye yok";return}
+ r.plan={entry:e,sl,tp,time:now,tf:s.tf,atr:a.atr,rr:Math.abs(tp-e)/Math.abs(e-sl),riskPct:Math.abs(e-sl)/e*100};
+}
+function planState(r){
+ if(r.error)return "Veri yok";if(!r.plan)return r.planError||"Plan yok";
+ if(!Number.isFinite(r.price)||Date.now()-lastPrices>30000)return "Fiyat güncel değil";
+ return r.result==="AL"?(r.price<=r.plan.sl?"SL bölgesi":r.price>=r.plan.tp?"TP bölgesi":"Aralık içinde"):(r.price>=r.plan.sl?"SL bölgesi":r.price<=r.plan.tp?"TP bölgesi":"Aralık içinde");
+}
+async function scan(){
+ if(busy||priceBusy)return;busy=true;$("scan").disabled=true;$("scan").textContent="Taranıyor…";$("status").textContent="Binance’e bağlanılıyor";message("");
+ try{
+ const [tickers,time,info]=await Promise.all([get("/fapi/v1/ticker/24hr"),get("/fapi/v1/time"),infoCache&&Date.now()-infoTime<3600000?infoCache:get("/fapi/v1/exchangeInfo")]);
+ if(!Array.isArray(tickers)||!Array.isArray(info.symbols)||!Number.isFinite(time.serverTime))throw Error("Geçersiz API yanıtı.");
+ infoCache=info;infoTime=Date.now();
+ const eligible=new Map(info.symbols.filter(x=>x.quoteAsset==="USDT"&&x.contractType==="PERPETUAL"&&x.status==="TRADING").map(x=>[x.symbol,x]));
+ const top=tickers.filter(x=>eligible.has(x.symbol)&&Number.isFinite(+x.quoteVolume)).sort((a,b)=>+b.quoteVolume-+a.quoteVolume).slice(0,15);
+ if(!top.length)throw Error("Aktif USDT perpetual kontratı bulunamadı.");
+ const next=top.map((x,i)=>{const tick=eligible.get(x.symbol).filters.find(f=>f.filterType==="PRICE_FILTER")?.tickSize;return {symbol:x.symbol,rank:i+1,volume:+x.quoteVolume,price:NaN,tick:+tick,digits:decimals(tick||"0.000001"),data:{},result:"BEKLE",error:"",plan:null}});
+ let cursor=0,done=0;
+ async function worker(){while(cursor<next.length){const r=next[cursor++];try{
+ const data=await Promise.all(["15m","4h"].map(async tf=>[tf,analyze(await get("/fapi/v1/klines?symbol="+encodeURIComponent(r.symbol)+"&interval="+tf+"&limit=300"),time.serverTime)]));
+ data.forEach(([tf,a])=>r.data[tf]=a);r.result=r.data["15m"].signal===r.data["4h"].signal?r.data["15m"].signal:"BEKLE";
+ }catch(e){r.error=e.message}done++;$("status").textContent="Analiz "+done+"/"+next.length}}
+ await Promise.all([worker(),worker(),worker()]);
+ let priceError="";try{const prices=await get("/fapi/v1/ticker/price");if(!Array.isArray(prices))throw Error("Geçersiz fiyat yanıtı.");const map=new Map(prices.map(x=>[x.symbol,+x.price]));next.forEach(r=>{const v=map.get(r.symbol);r.price=Number.isFinite(v)&&v>0?v:NaN});lastPrices=Date.now()}catch(e){priceError=e.message;lastPrices=0}
+ const now=Date.now();next.forEach(r=>makePlan(r,now));records=next;lastScan=now;
+ if(!records.some(r=>r.symbol===selected))selected=records[0].symbol;
+ render();$("updated").textContent="Tarama: "+new Date(now).toLocaleTimeString("tr-TR");$("csv").disabled=false;
+ const failed=records.filter(r=>r.error);
+ $("status").textContent=failed.length||priceError?"Kısmi veri":"Güncel · Binance Futures";
+ if(failed.length||priceError)message((failed.length?failed.length+" çift analiz edilemedi. "+failed[0].error+" ":"")+(priceError?"Fiyatlar alınamadı; giriş ve TP/SL oluşturulmadı. "+priceError:""));
+ if(/hız sınırı/.test(priceError)||failed.some(r=>/hız sınırı/.test(r.error))){$("auto").checked=false;$("live").checked=false}
+ }catch(e){message(e.message+" Yeni tarama oluşturulmadı."+(records.length?" Gösterilen planlar önceki taramaya aittir.":""));$("status").textContent="Tarama başarısız / eski veri";if(/hız sınırı/.test(e.message)){$("auto").checked=false;$("live").checked=false}}
+ finally{busy=false;$("scan").disabled=false;$("scan").textContent="↻ Şimdi yenile"}
+}
+async function refreshPrices(){
+ if(busy||priceBusy||!records.length)return;priceBusy=true;
+ try{const raw=await get("/fapi/v1/ticker/price");if(!Array.isArray(raw))throw Error("Geçersiz fiyat verisi.");
+ const map=new Map(raw.map(x=>[x.symbol,+x.price]));records.forEach(r=>{const v=map.get(r.symbol);r.price=Number.isFinite(v)&&v>0?v:NaN});lastPrices=Date.now();render();
+ }catch(e){$("priceTime").textContent="Fiyat yenilenemedi: "+e.message+" Önceki fiyatlar korunuyor.";$("status").textContent="Fiyat güncel değil";if(/hız sınırı/.test(e.message)){$("live").checked=false;$("auto").checked=false}}
+ finally{priceBusy=false}
+}
+function render(){
+ $("rows").innerHTML=records.map(r=>'<tr class="'+(r.symbol===selected?"selected":"")+'"><td><button class="pair" data-symbol="'+r.symbol+'"><span class="rank">'+String(r.rank).padStart(2,"0")+'</span>'+r.symbol+'</button></td><td class="numeric">'+volume(r.volume)+'</td><td class="numeric">'+price(r.price,r)+'</td><td>'+(r.data["15m"]?badge(r.data["15m"].signal):"Veri yok")+'</td><td>'+(r.data["4h"]?badge(r.data["4h"].signal):"Veri yok")+'</td><td>'+badge(r.result)+'</td><td class="numeric">'+price(r.plan?.entry,r)+'</td><td class="numeric up">'+price(r.plan?.tp,r)+'</td><td class="numeric down">'+price(r.plan?.sl,r)+'</td><td class="small">'+planState(r)+'</td></tr>').join("");
+ $("total").textContent=records.filter(r=>!r.error).length;
+ $("buys").textContent=records.filter(r=>r.result==="AL").length;$("sells").textContent=records.filter(r=>r.result==="SAT").length;$("waits").textContent=records.filter(r=>r.result==="BEKLE").length;
+ $("priceTime").textContent=lastPrices?"Son fiyat: "+new Date(lastPrices).toLocaleTimeString("tr-TR")+" · 10 sn aralıklı sorgu":"Son fiyat alınamadı";
+ detail();
+}
+function detail(){
+ const r=records.find(x=>x.symbol===selected);if(!r)return;
+ $("symbol").textContent=r.symbol;$("detailPrice").textContent=price(r.price,r);
+ $("result").textContent=r.result;$("result").className="badge "+(r.result==="AL"?"buy":r.result==="SAT"?"sell":"");
+ $("entry").textContent=price(r.plan?.entry,r);$("tp").textContent=price(r.plan?.tp,r);$("sl").textContent=price(r.plan?.sl,r);
+ $("planInfo").textContent=r.plan?(r.result==="AL"?"Long":"Short")+" referans planı · ATR 14 ("+(r.plan.tf==="15m"?"15dk":"4s")+") "+price(r.plan.atr,r)+" · SL mesafesi %"+nf.format(r.plan.riskPct)+" · Risk/getiri 1:"+nf.format(r.plan.rr)+" · "+planState(r)+". Gerçek emir veya gerçekleşme takibi değildir.":r.error?"Analiz alınamadı: "+r.error:r.planError||"BEKLE: iki zaman diliminde aynı yönde yeterli teyit yok; işlem seviyesi üretilmedi.";
+ $("planTime").textContent=r.plan?"Plan: "+new Date(r.plan.time).toLocaleString("tr-TR")+" · Son fiyat yenilendiğinde seviyeler sabit kalır.":"Plan oluşturulmadı.";
+ const a=r.data[$("detailTf").value];if(!a){$("indicators").textContent="Gösterge verisi yok.";$("chart").innerHTML="";$("candleTime").textContent="Kapanmış mum verisi alınamadı.";return}
+ const rows=[["MA","SMA 20 / 50",price(a.m20,r)+" / "+price(a.m50,r)],["EMA","EMA 20 / 50",price(a.e20,r)+" / "+price(a.e50,r)],["RSI","Wilder 14",nf.format(a.R)],["Bollinger","Alt / üst · 20, 2σ",price(a.lower,r)+" / "+price(a.upper,r)],["Supertrend","ATR 10 · 3",price(a.S.line,r)]];
+ $("indicators").innerHTML=rows.map((x,i)=>'<div class="indicator"><div>'+x[0]+'<small>'+x[1]+'</small></div><span class="mono">'+x[2]+'</span>'+badge(a.votes[i]>0?"AL":a.votes[i]<0?"SAT":"NÖTR")+'</div>').join("");
+ $("candleTime").textContent="Puan: "+(a.score>0?"+":"")+a.score+" / 5 · Son kapanış: "+new Date(a.c[a.c.length-1].t+1).toLocaleString("tr-TR")+" · Cihaz saat dilimi.";
+ const p=a.c.slice(-60).map(x=>x.c),min=Math.min(...p),max=Math.max(...p),range=max-min||1;
+ const path=p.map((v,i)=>(i?"L":"M")+(12+i/(p.length-1)*476).toFixed(2)+","+(140-(v-min)/range*120).toFixed(2)).join(" ");
+ $("chart").innerHTML=[30,80,130].map(y=>'<line x1="12" x2="488" y1="'+y+'" y2="'+y+'" stroke="#d6ddd1" stroke-dasharray="3 5"/>').join("")+'<path d="'+path+'" fill="none" stroke="#146b48" stroke-width="2"/>';
+}
+$("scan").addEventListener("click",scan);
+$("rows").addEventListener("click",e=>{const b=e.target.closest("[data-symbol]");if(b){selected=b.dataset.symbol;render()}});
+$("detailTf").addEventListener("change",detail);
+["riskTf","mult","rr"].forEach(id=>$(id).addEventListener("change",()=>{
+ if(busy){message("Tarama tamamlandıktan sonra risk ayarlarını değiştirin.");return}
+ if(!settings()){message("SL çarpanı ve risk/getiri oranı 0,5 ile 10 arasında olmalıdır.");records.forEach(r=>{r.plan=null;r.planError="Risk ayarı geçersiz"});render();return}
+ records.forEach(r=>{if(Date.now()-lastPrices>30000){r.plan=null;r.planError="Önce fiyatı yenileyin"}else makePlan(r,Date.now())});render();
+}));
+$("live").addEventListener("change",()=>{if($("live").checked)refreshPrices()});
+$("auto").addEventListener("change",()=>{if($("auto").checked)scan()});
+setInterval(()=>{if(!document.hidden&&!busy&&!priceBusy){if($("auto").checked&&Date.now()-lastScan>=60000)scan();else if($("live").checked)refreshPrices()}},10000);
+document.addEventListener("visibilitychange",()=>{if(!document.hidden){if($("auto").checked&&Date.now()-lastScan>=60000)scan();else if($("live").checked)refreshPrices()}});
+$("csv").addEventListener("click",()=>{
+ const rows=[["Çift","Hacim USDT","Son fiyat","15dk","4s","Sonuç","Giriş","TP","SL","Plan durumu","Plan zamanı","Fiyat zamanı"],...records.map(r=>[r.symbol,r.volume,r.price,r.data["15m"]?.signal||"VERİ YOK",r.data["4h"]?.signal||"VERİ YOK",r.result,r.plan?.entry??"",r.plan?.tp??"",r.plan?.sl??"",planState(r),r.plan?new Date(r.plan.time).toISOString():"",lastPrices?new Date(lastPrices).toISOString():""])];
+ const text="\uFEFF"+rows.map(row=>row.map(v=>'"'+String(v).replace(/"/g,'""')+'"').join(";")).join("\r\n"),url=URL.createObjectURL(new Blob([text],{type:"text/csv;charset=utf-8"})),a=document.createElement("a");
+ a.href=url;a.download="pusula-risk.csv";document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),30000);
+});
+</script>
+</body>
+</html>
+```
